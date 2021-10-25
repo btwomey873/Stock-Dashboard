@@ -1,0 +1,87 @@
+﻿<UserControl x:Class="Thor.Views.SellView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:local="clr-namespace:Thor.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </UserControl.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+           
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="375"/>
+            <ColumnDefinition Width="*"/>
+           
+        </Grid.ColumnDefinitions>
+
+        
+        <Grid Margin="0 20 0 0" Grid.Row="1" MaxWidth="500">
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding SearchResultSymbol}" Value="">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+        </Grid>
+
+        <Border Grid.Column="1" Grid.Row="1"  Grid.RowSpan="2" Padding="10 10 10 10" Margin="10 5 10 -35" BorderBrush="{DynamicResource MahApps.Brushes.Gray8}" BorderThickness="1 1 1 1"/>
+        <TextBlock Text="{Binding Message}" Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center" DataContext="{Binding StatusMessageViewModel}"
+                   Visibility="{Binding HasMessage, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+
+        <TextBlock Text="Owned Stocks" Grid.Column="1" Style="{StaticResource DefaultTextBlock}" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+        <DataGrid x:Name="assets" ItemsSource="{Binding OwnedStocks, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource DefaultDataGrid}" SelectedItem="{Binding SelectedStock, Mode=TwoWay}" SelectionChanged="DataGrid_SelectionChanged" Grid.Row="1" Grid.Column="1" Margin="0 10 10 10" Grid.ColumnSpan="1" HorizontalAlignment="Center">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Symbol" Binding="{Binding Symbol}"/>
+                <DataGridTextColumn Header="Price" Binding="{Binding Price, StringFormat={}{0:C}}"/>
+                <DataGridTextColumn Header="Shares" Binding="{Binding Shares}"/>
+                <DataGridTextColumn Header="Market Value" Binding="{Binding MarketValue, StringFormat={}{0:C}}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+        <TextBlock Text="Sell Stock"  Grid.Column="1" Style="{StaticResource DefaultTextBlock}" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+        <WrapPanel Grid.Row="6" Grid.Column="1" HorizontalAlignment="Center">
+                <TextBlock Style="{StaticResource DefaultTextBlock}" Height="30" Width="100" Text="Stock Price" Margin="-40 10 10 10" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBlock Style="{StaticResource DefaultTextBlock}" Height="30" Width="100" Text="{Binding StockPrice, StringFormat={}{0:C}}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </WrapPanel>
+
+        <WrapPanel Grid.Row="7" Grid.Column="1" HorizontalAlignment="Center">
+                <TextBlock Style="{StaticResource DefaultTextBlock}" Height="30" Width="100" Text="Quantity Shares" Margin="-40 10 10 10" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBox Style="{StaticResource DefaultTextBox1}" Height="30" Width="100" Text="{Binding SharesToSell, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </WrapPanel>
+
+        <WrapPanel Grid.Row="8" Grid.Column="1" HorizontalAlignment="Center">
+                <TextBlock Style="{StaticResource DefaultTextBlock}" Height="30" Width="100" Text="Total Price" Margin="-40 10 10 10" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBlock  Style="{StaticResource DefaultTextBlock}" Height="30" Width="100" Text="{Binding TotalPrice, StringFormat={}{0:C}}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </WrapPanel>
+
+        <Button Grid.Row="9" Grid.Column="1" Width="100" Content="Sell" Margin="10 10 10 10" Style="{StaticResource DefaultButton}" Command="{Binding SellStockCommand}"/>
+
+        <Border Grid.Row="6" Grid.Column="1" Grid.RowSpan="6" Padding="10 10 10 10" Margin="10 5 10 -35" BorderBrush="{DynamicResource MahApps.Brushes.Gray8}" BorderThickness="1 1 1 1"/>
+    </Grid>
+</UserControl>

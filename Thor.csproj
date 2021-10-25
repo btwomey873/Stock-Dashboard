@@ -1,0 +1,63 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Styles\Assets\buy.png" />
+    <None Remove="Styles\Assets\buy_colored.png" />
+    <None Remove="Styles\Assets\chart.png" />
+    <None Remove="Styles\Assets\chart_colored.png" />
+    <None Remove="Styles\Assets\portfolio.png" />
+    <None Remove="Styles\Assets\portfolio_colored.png" />
+    <None Remove="Styles\Assets\sell.png" />
+    <None Remove="Styles\Assets\sell_colored.png" />
+    <None Remove="Styles\Assets\strategy.png" />
+    <None Remove="Styles\Assets\strategy_colored.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Alpaca.Markets" Version="5.1.0" />
+    <PackageReference Include="LiveCharts" Version="0.9.7" />
+    <PackageReference Include="LiveCharts.Wpf" Version="0.9.7" />
+    <PackageReference Include="MahApps.Metro" Version="2.4.7" />
+    <PackageReference Include="MahApps.Metro.IconPacks" Version="4.10.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Skender.Stock.Indicators" Version="1.17.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Thor.API\Thor.API.csproj" />
+    <ProjectReference Include="..\Thor.Domain\Thor.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Styles\Assets\buy.png" />
+    <Resource Include="Styles\Assets\buy_colored.png" />
+    <Resource Include="Styles\Assets\chart.png" />
+    <Resource Include="Styles\Assets\chart_colored.png" />
+    <Resource Include="Styles\Assets\portfolio.png" />
+    <Resource Include="Styles\Assets\portfolio_colored.png" />
+    <Resource Include="Styles\Assets\sell.png" />
+    <Resource Include="Styles\Assets\sell_colored.png" />
+    <Resource Include="Styles\Assets\strategy.png" />
+    <Resource Include="Styles\Assets\strategy_colored.png" />
+  </ItemGroup>
+
+</Project>

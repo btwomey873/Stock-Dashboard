@@ -1,0 +1,34 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls">
+    <Style x:Key="DefaultTextBox" TargetType="{x:Type TextBox}" BasedOn="{StaticResource MahApps.Styles.TextBox}">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MahApps.Brushes.Gray8}" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="mah:TextBoxHelper.Watermark" Value="Enter Symbol" />
+    </Style>
+
+    <Style x:Key="DefaultTextBox1" TargetType="{x:Type TextBox}" BasedOn="{StaticResource MahApps.Styles.TextBox}">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MahApps.Brushes.Gray8}" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="mah:TextBoxHelper.Watermark" Value="Quantity" />
+    </Style>
+    
+    <Style x:Key="DefaultTextBox2" TargetType="{x:Type TextBox}" BasedOn="{StaticResource MahApps.Styles.TextBox}">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MahApps.Brushes.Gray8}" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="mah:TextBoxHelper.Watermark" Value="Username"/>
+    </Style>
+
+    <Style x:Key="DefaultTextBox3" TargetType="{x:Type TextBox}" BasedOn="{StaticResource MahApps.Styles.TextBox}">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MahApps.Brushes.Gray8}" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="mah:TextBoxHelper.Watermark" Value="Password"/>
+    </Style>
+
+</ResourceDictionary>
